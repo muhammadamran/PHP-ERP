@@ -1,8 +1,8 @@
 <?php
-$dbhost = "182.23.104.212";
-$dbusername = "beacukai";
-$dbpassword = "beacukai";
-$dbname = "tpbdb";
+$dbhost = "localhost";
+$dbusername = "root";
+$dbpassword = "";
+$dbname = "erpdb";
 $dbport = "3306";
 $dbcon = new mysqli($dbhost, $dbusername, $dbpassword, $dbname, $dbport) or die(mysqli_connect_errno());
 
