@@ -1,7 +1,7 @@
 <?php
 include "include/login/head.php";
 ?>
-<title>Login | <?= $APP_NAME; ?></title>
+<title>Login | <?= $TITLE; ?></title>
 <link rel="icon" href="assets/data/favicon.ico" type="image/x-icon" />
 <div class="auth-wrapper">
   <div class="container-fluid h-100">
@@ -14,43 +14,45 @@ include "include/login/head.php";
       <div class="col-xl-4 col-lg-6 col-md-7 my-auto p-0">
         <div class="authentication-form mx-auto">
           <div class="logo-centered">
-            <a href="assets/index.html"><img src="assets/src/img/brand.svg" alt=""></a>
+            <a href="index.php">
+              <img src="<?= $APP_NAME; ?>" alt="Logo" style="width: 255px;">
+            </a>
           </div>
+          <div class="login-divider"></div>
           <h3>Sign In to ThemeKit</h3>
           <p>Happy to see you again!</p>
 
           <!-- Alert -->
-          <div class="alert alert-secondary alert-dismissible fade show" role="alert">
-            <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <i class="ik ik-x"></i>
-            </button>
-          </div>
+          <?php if (isset($_GET["signout"])) { ?>
+            <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+              <strong>Sign Out!</strong> You have successfully exited the system page!
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <i class="ik ik-x"></i>
+              </button>
+            </div>
+          <?php } ?>
 
-          <div class="alert alert-info alert-dismissible fade show" role="alert">
-            <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <i class="ik ik-x"></i>
-            </button>
-          </div>
+          <?php if (isset($_GET["failed"])) { ?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <strong>Failed!</strong> Your email or password is wrong, please check again!
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <i class="ik ik-x"></i>
+              </button>
+            </div>
+          <?php } ?>
 
-          <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <i class="ik ik-x"></i>
-            </button>
-          </div>
-
-          <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <i class="ik ik-x"></i>
-            </button>
-          </div>
+          <?php if (isset($_GET["info"])) { ?>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              <strong>Users Account!</strong> Your account is not found in the system, please contact the Administrator!
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <i class="ik ik-x"></i>
+              </button>
+            </div>
+          <?php } ?>
           <!-- End Alert -->
 
           <!-- Form Login -->
-          <form action="../index.html">
+          <form action="index.php">
             <div class="form-group">
               <input type="text" class="form-control" placeholder="Email" required="" value="johndoe@admin.com">
               <i class="ik ik-user"></i>

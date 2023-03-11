@@ -10,6 +10,8 @@ if ($db->connect_error) {
   die("Connection failed: " . $db->connect_error);
 }
 
+date_default_timezone_set("Asia/jakarta");
+
 $Qapps = $db->query("SELECT * FROM application ORDER BY ID ASC LIMIT 1");
 $Rapps = mysqli_fetch_array($Qapps);
 
@@ -19,8 +21,8 @@ if ($Rapps == NULL) {
   $LOGO = 'assets/apps/logo-company/logo.png';
   $LOAD = 'assets/apps/icon-loader/loader.png';
   $BACKGROUND = 'assets/apps/background-login/erpbg.svg';
-  $TITLE = 'ERP System';
-  $APP_NAME = 'ERP System';
+  $TITLE = 'ERP System Website';
+  $APP_NAME = 'assets/apps/logo-app/app.png';
   $COMPANY = $Rapps['COMPANY'];
   $SLOGAN = $Rapps['SLOGAN'];
   $EMAIL = $Rapps['EMAIL'];
@@ -38,6 +40,7 @@ if ($Rapps == NULL) {
   $NIK = $Rapps['NIK'];
   $NPWP = $Rapps['NPWP'];
   $TYPE_COMPANY = $Rapps['TYPE_COMPANY'];
+  $COLOR = '#673AB7';
 } else {
   $ID = $Rapps['ID'];
   $ICON = $Rapps['ICON'];
@@ -63,6 +66,7 @@ if ($Rapps == NULL) {
   $NIK = $Rapps['NIK'];
   $NPWP = $Rapps['NPWP'];
   $TYPE_COMPANY = $Rapps['TYPE_COMPANY'];
+  $COLOR = $Rapps['COLOR'];
 }
 
 
@@ -112,6 +116,66 @@ class helpers
   {
     return "Rp. " . number_format($harga, 0, ',', '.');
   }
+}
+
+// DATE SPLIT
+function date_indo_s($date, $print_day = false)
+{
+  $day = array(
+    1 =>
+    'Sen',
+    'Sel',
+    'Rab',
+    'Kam',
+    'Jum',
+    'Sab',
+    'Min'
+  );
+  $month = array(
+    1 =>
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'Mei',
+    'Jun',
+    'Jul',
+    'Agu',
+    'Sep',
+    'Okt',
+    'Nov',
+    'Des'
+  );
+  $split    = explode('-', $date);
+  $tgl_indo = $split[2] . ' ' . $month[(int)$split[1]] . ' ' . $split[0];
+
+  if ($print_day) {
+    $num = date('N', strtotime($date));
+    return $day[$num] . ', ' . $tgl_indo;
+  }
+  return $tgl_indo;
+}
+
+// RUPIAH
+function Rupiah($angka)
+{
+  $hasil = "Rp. " . number_format($angka, 2, ',', '.');
+  return $hasil;
+}
+
+// DECIMAL
+function decimal($number)
+{
+  $hasil = number_format($number, 0, ",", ",");
+  return $hasil;
+}
+
+// NPWP
+function NPWP($value)
+{
+  // 12.345.678.9-012.345
+  $hasil = number_format($value, 0, ',', '.');
+  return $hasil;
 }
 
 $helpers = new helpers();
