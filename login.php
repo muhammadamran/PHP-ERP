@@ -90,11 +90,11 @@ include "include/login/head.php";
           <!-- Form Login -->
           <form action="execute.php" method="POST">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Email" id="Email" required="">
+              <input type="text" class="form-control" name="USERNAME" placeholder="Email" id="Email" required="">
               <i class="ik ik-user"></i>
             </div>
             <div class="form-group">
-              <input type="password" class="form-control" placeholder="Password" id="Password" required="">
+              <input type="password" class="form-control" name="PASSWORD" placeholder="Password" id="Password" required="">
               <i class="ik ik-lock"></i>
             </div>
             <div class="row">
