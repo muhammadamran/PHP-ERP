@@ -20,7 +20,7 @@ if ($Rapps == NULL) {
   $ICON = 'assets/apps/icon/icon.png';
   $LOGO = 'assets/apps/logo-company/logo.png';
   $LOAD = 'assets/apps/icon-loader/loader.png';
-  $BACKGROUND = 'assets/apps/background-login/erpbg.svg';
+  $BACKGROUND = 'assets/apps/background-login/login2.svg';
   $TITLE = 'ERP System Website';
   $APP_NAME = 'assets/apps/logo-app/app.png';
   $COMPANY = $Rapps['COMPANY'];
@@ -40,7 +40,7 @@ if ($Rapps == NULL) {
   $NIK = $Rapps['NIK'];
   $NPWP = $Rapps['NPWP'];
   $TYPE_COMPANY = $Rapps['TYPE_COMPANY'];
-  $COLOR = '#673AB7';
+  $COLOR = '#6c757d';
 } else {
   $ID = $Rapps['ID'];
   $ICON = $Rapps['ICON'];
