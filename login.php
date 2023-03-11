@@ -63,6 +63,14 @@ include "include/login/head.php";
               <div class="col text-left">
                 <label class="custom-control custom-checkbox">
                   <input type="checkbox" class="custom-control-input" id="item_checkbox" name="item_checkbox" value="option1">
+                  <span class="custom-control-label">&nbsp;Show Password</span>
+                </label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col text-left">
+                <label class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="item_checkbox" name="item_checkbox" value="option1">
                   <span class="custom-control-label">&nbsp;Remember Me</span>
                 </label>
               </div>
