@@ -1,14 +1,70 @@
 <?php
-$dbhost = "localhost";
+$dbhost     = "localhost";
 $dbusername = "root";
 $dbpassword = "";
-$dbname = "erpdb";
-$dbport = "3306";
-$dbcon = new mysqli($dbhost, $dbusername, $dbpassword, $dbname, $dbport) or die(mysqli_connect_errno());
+$dbname     = "erpdb";
+$dbport     = "3306";
+$db         = new mysqli($dbhost, $dbusername, $dbpassword, $dbname, $dbport) or die(mysqli_connect_errno());
 
-if ($dbcon->connect_error) {
-  die("Connection failed: " . $dbcon->connect_error);
+if ($db->connect_error) {
+  die("Connection failed: " . $db->connect_error);
 }
+
+$Qapps = $db->query("SELECT * FROM application ORDER BY ID ASC LIMIT 1");
+$Rapps = mysqli_fetch_array($Qapps);
+
+if ($Rapps == NULL) {
+  $ID = '1';
+  $ICON = 'assets/apps/icon/icon.png';
+  $LOGO = 'assets/apps/logo-company/logo.png';
+  $LOAD = 'assets/apps/icon-loader/loader.png';
+  $BACKGROUND = 'assets/apps/background-login/erpbg.svg';
+  $TITLE = 'ERP System';
+  $APP_NAME = 'ERP System';
+  $COMPANY = $Rapps['COMPANY'];
+  $SLOGAN = $Rapps['SLOGAN'];
+  $EMAIL = $Rapps['EMAIL'];
+  $TELP = $Rapps['TELP'];
+  $FAX = $Rapps['FAX'];
+  $ADDRESS = $Rapps['ADDRESS'];
+  $TYPE_APP = $Rapps['TYPE_APP'];
+  $VERSION = $Rapps['VERSION'];
+  $PROVINCE = $Rapps['PROVINCE'];
+  $CITY = $Rapps['CITY'];
+  $DISTRICTS = $Rapps['DISTRICTS'];
+  $RT = $Rapps['RT'];
+  $RW = $Rapps['RW'];
+  $OWNER = $Rapps['OWNER'];
+  $NIK = $Rapps['NIK'];
+  $NPWP = $Rapps['NPWP'];
+  $TYPE_COMPANY = $Rapps['TYPE_COMPANY'];
+} else {
+  $ID = $Rapps['ID'];
+  $ICON = $Rapps['ICON'];
+  $LOGO = $Rapps['LOGO'];
+  $LOAD = $Rapps['LOAD'];
+  $BACKGROUND = $Rapps['BACKGROUND'];
+  $TITLE = $Rapps['TITLE'];
+  $APP_NAME = $Rapps['APP_NAME'];
+  $COMPANY = $Rapps['COMPANY'];
+  $SLOGAN = $Rapps['SLOGAN'];
+  $EMAIL = $Rapps['EMAIL'];
+  $TELP = $Rapps['TELP'];
+  $FAX = $Rapps['FAX'];
+  $ADDRESS = $Rapps['ADDRESS'];
+  $TYPE_APP = $Rapps['TYPE_APP'];
+  $VERSION = $Rapps['VERSION'];
+  $PROVINCE = $Rapps['PROVINCE'];
+  $CITY = $Rapps['CITY'];
+  $DISTRICTS = $Rapps['DISTRICTS'];
+  $RT = $Rapps['RT'];
+  $RW = $Rapps['RW'];
+  $OWNER = $Rapps['OWNER'];
+  $NIK = $Rapps['NIK'];
+  $NPWP = $Rapps['NPWP'];
+  $TYPE_COMPANY = $Rapps['TYPE_COMPANY'];
+}
+
 
 class helpers
 {

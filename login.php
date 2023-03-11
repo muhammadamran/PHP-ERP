@@ -1,13 +1,13 @@
 <?php
 include "include/login/head.php";
 ?>
-<title>Login | ThemeKit - Admin Template</title>
+<title>Login | <?= $APP_NAME; ?></title>
 <link rel="icon" href="assets/data/favicon.ico" type="image/x-icon" />
 <div class="auth-wrapper">
   <div class="container-fluid h-100">
     <div class="row flex-row h-100 bg-white">
       <div class="col-xl-8 col-lg-6 col-md-5 p-0 d-md-block d-lg-block d-sm-none d-none">
-        <div class="lavalite-bg" style="background-image: url('assets/default/login/erpbg.svg')">
+        <div class="lavalite-bg" style="background-image: url('<?= $BACKGROUND; ?>')">
           <div class="lavalite-overlay"></div>
         </div>
       </div>
